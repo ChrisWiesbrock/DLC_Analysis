@@ -39,9 +39,11 @@ snout_y=np.array(snout_y)
 snout_x=snout_x[4:]
 snout_y=snout_y[4:]
 
+#Filter anhand der Likelihood um grobes Misstracking rauszufiltern
 snout_likelihood=snout_likelihood[4:]
 snout_x=snout_x[snout_likelihood>0.95]
 snout_y=snout_y[snout_likelihood>0.95]
+
 
 distance_values=np.zeros((len(snout_x),1))
 for i in range(len(snout_x)-1):
