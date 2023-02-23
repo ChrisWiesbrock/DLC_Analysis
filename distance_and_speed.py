@@ -16,8 +16,8 @@ import os
 
 
 #Pfad und Daten werden eingelesen
-path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\topview_femaleurineleft_39623_180722-convertedDLC_resnet50_Fabian_V1_TopviewMay18shuffle1_450000..xlsx')
-data=pd.read_excel(path, header=None)
+path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\2_Cam_Frizi-220630-125958_725_DREADD-220709-134115_Cam1DLC_resnet50_Frizi_MaLabDataDec19shuffle1_450000.csv')
+data=pd.read_csv(path,delimiter=';',header=None)
 
 def distance(x2,x1,y2,y1):
     dist = np.sqrt( (x2 - x1)**2 + (y2 - y1)**2 )
@@ -36,11 +36,11 @@ snout_y=np.array(snout_y)
 
 #Die ersten vier Reihen werden rausgenommen, da diese Infos enthalten, die wir nicht mehr brauchen
 
-snout_x=snout_x[4:]
-snout_y=snout_y[4:]
+snout_x=snout_x[4:].astype(float)
+snout_y=snout_y[4:].astype(float)
 
 #Filter anhand der Likelihood um grobes Misstracking rauszufiltern
-snout_likelihood=snout_likelihood[4:]
+snout_likelihood=snout_likelihood[4:].astype(float)
 snout_x=snout_x[snout_likelihood>0.95]
 snout_y=snout_y[snout_likelihood>0.95]
 
