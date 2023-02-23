@@ -4,8 +4,8 @@ import pandas as pd
 import os
 
 #Pfad und Daten werden eingelesen
-path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\topview_femaleurineleft_39623_180722-convertedDLC_resnet50_Fabian_V1_TopviewMay18shuffle1_450000..xlsx')
-data=pd.read_excel(path, header=None)
+path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\2_Cam_Frizi-220630-125958_725_DREADD-220709-134115_Cam1DLC_resnet50_Frizi_MaLabDataDec19shuffle1_450000.csv')
+data=pd.read_csv(path,delimiter=';',header=None)
 
 #Werte für die Position der Nase werden in Variablen überführt
 snout_x=data[7]
@@ -18,8 +18,8 @@ snout_y=np.array(snout_y)
 
 #Die ersten vier Reihen werden rausgenommen, da diese Infos enthalten, die wir nicht mehr brauchen
 
-snout_x=snout_x[4:]
-snout_y=snout_y[4:]
+snout_x=snout_x[4:].astype(float)
+snout_y=snout_y[4:].astype(float)
 
 #Erstellung der Heatmap und Speicherung der normalisierten Position
 h,x_edges,y_edges,mesh=plt.hist2d(snout_x,snout_y,bins=5, cmap='Greys')
