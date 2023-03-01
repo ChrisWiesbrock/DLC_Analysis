@@ -18,6 +18,7 @@ import os
 #Pfad und Daten werden eingelesen
 path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\2_Cam_Frizi-220630-125958_725_DREADD-220709-134115_Cam1DLC_resnet50_Frizi_MaLabDataDec19shuffle1_450000.csv')
 data=pd.read_csv(path,delimiter=';',header=None)
+#data=pd.read_csv(path,delimiter=';',header=None)
 
 def distance(x2,x1,y2,y1):
     dist = np.sqrt( (x2 - x1)**2 + (y2 - y1)**2 )
@@ -61,7 +62,12 @@ for i in range(len(distance_values)):
     
 distance_values=distance_values[distance_values<50]
 hist,edges=np.histogram(distance_values)
-plt.plot(edges[:-1],hist/len(distance_values))
+sns.distplot(distance_values)
+plt.ylabel('Speed [cm/s]')
+plt.figure()
+plt.plot(snout_x,snout_y)
+plt.xlabel('x_position [pixel]')
+plt.ylabel('y_position [pixel]')
 
 
     
