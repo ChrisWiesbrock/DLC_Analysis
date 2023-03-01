@@ -14,6 +14,10 @@ snout_x=data[7]
 snout_y=data[8]
 snout_likelihood=data[9]
 
+#snout_x=data[10]
+#snout_y=data[11]
+#snout_likelihood=data[12]
+
 #Variablen werden zu Arrays umgewandelt, damit diese von matplotlib leichter zu verarbeiten sind
 snout_x=np.array(snout_x)
 snout_y=np.array(snout_y)
