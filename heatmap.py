@@ -6,7 +6,7 @@ import os
 #Pfad und Daten werden eingelesen
 path=os.path.abspath(r'C:\Users\wiesbrock\Desktop\2_Cam_Frizi-220630-125958_725_DREADD-220709-134115_Cam1DLC_resnet50_Frizi_MaLabDataDec19shuffle1_450000.csv')
 data=pd.read_csv(path,delimiter=';',header=None)
-#data=pd.read_csv(path,delimiter=';',header=None)
+#data=pd.read_csv(path,delimiter=',',header=None)
 num_bin=5
 
 #Werte für die Position der Nase werden in Variablen überführt
